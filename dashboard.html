@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar">
+    <div class="nav-container">
+        <span class="logo">🛰️ DR Failover Simulator Engine</span>
+        <div class="nav-status">
+            <span id="server-time" class="server-time"></span>
+            <span id="engine-badge" class="engine-badge">Auto-Failover: --</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="top-bar">
+        <div class="active-banner" id="active-banner">
+            Active Site: <span id="active-site-name">Loading...</span>
+        </div>
+        <div class="controls">
+            <button id="toggle-auto-btn" class="btn btn-outline">Toggle Auto-Failover</button>
+            <button id="reset-btn" class="btn btn-danger">Reset Simulation</button>
+        </div>
+    </div>
+
+    <h3>Site Health</h3>
+    <div id="sites-grid" class="sites-grid"></div>
+
+    <h3>Event Log</h3>
+    <div class="event-log-wrapper">
+        <table class="event-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Event</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody id="event-log-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
